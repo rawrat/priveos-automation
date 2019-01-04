@@ -9,10 +9,10 @@ server {
   server_name {{ host_name }};
  
   location /broker/ {
-    proxy_pass http://broker/;
+    proxy_pass http://broker;
   }
   location /kms/ {
-    proxy_pass http://kms/;
+    proxy_pass http://kms;
   }
   location / {
     deny all;
