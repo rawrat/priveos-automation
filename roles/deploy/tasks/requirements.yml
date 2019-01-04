@@ -1,0 +1,62 @@
+---
+
+- name: Installing software-properties-common
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - software-properties-common
+- name: Add certbot apt sources
+  block:
+    - shell: "add-apt-repository universe"
+    - apt_repository:
+        repo: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+        - ppa:certbot/certbot
+- name: Installing dependencies
+  become: yes
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - python-certbot-nginx
+    - git 
+    - nodejs 
+    - npm 
+    - mongodb-server 
+    - golang 
+    - nginx 
+    - ntp
+- name: Installing IPFS
+  block:
+    - shell: "go get -u github.com/ipfs/ipfs-update"
+      args:
+        creates: "~/go/bin/ipfs-update"
+    - shell: "~/go/bin/ipfs-update install latest"
+      args:
+        creates: "/usr/local/bin/ipfs"
+- name: Installing PM2
+  npm:
+    name: pm2
+    global: yes
+- name: Configure IPFS
+  block:
+  - user:
+      name: "{{ ipfs_user }}"
+      state: present
+      home: "/home/{{ ipfs_user }}"
+  - shell: "ipfs init --profile server"
+    become_user: "{{ ipfs_user }}"
+    args:
+      creates: "/home/{{ ipfs_user }}/.ipfs"
+  - template: 
+      src: ipfs_systemd.j2 
+      dest: "/etc/systemd/system/ipfs.service"
+  - systemd: 
+      name: ipfs
+      state: started
+      enabled: yes
+    

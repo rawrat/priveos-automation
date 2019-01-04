@@ -1,0 +1,18 @@
+---
+# Please edit the variables in this file 
+
+# Enter your EOS account that you're using to regnode with privEOS
+nodeAccount: "You Producer EOS Account"
+
+# Which chain are we connecting to?
+httpEndpoint: "EOSIO Endpoint"
+chainId: "EOSIO Chain ID"
+
+# email address to be notified about the free let's encrypt SSL certificate
+lets_encrypt_email: your_email@example.com
+
+git_username: your_github_username
+git_password: your_github_password
+
+host_name: my.server.name
+

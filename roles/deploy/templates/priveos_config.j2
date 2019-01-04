@@ -1,0 +1,18 @@
+module.exports = {
+  httpEndpoint: "{{ httpEndpoint }}",
+  chainId: "{{ chainId }}",
+  mongoUrl: 'mongodb://127.0.0.1:27017',
+  dbName: 'priveos',
+  contract: 'priveosrules',
+  kmsPort: 3000,
+  brokerPort: 4000,
+  nodeAccount: "{{ nodeAccount }}",
+  backend: 'demux',
+  encryptionServiceUrl: 'http://127.0.0.1:6000',
+  ipfsConfig: {
+    host: 'localhost',
+    port: '5001',
+    protocol: 'http'
+  },
+  logLevel: 'info',
+}

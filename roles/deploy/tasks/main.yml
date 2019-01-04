@@ -1,0 +1,64 @@
+---
+
+- import_tasks: requirements.yml
+
+- name: Create priveos users
+  block:
+  - user:
+      name: "{{ priveos_user }}"
+      state: present
+      home: "/home/{{ priveos_user }}"      
+  - user:
+      name: "{{ encryption_service_user }}"
+      state: present
+      home: "/home/{{ encryption_service_user }}"
+- name: Configure privEOS
+  become_user: "{{ priveos_user }}"
+  block:
+  - git:
+      repo: "{{ priveos_repo }}"
+      dest: "{{ priveos_install_dir }}"
+      update: yes
+      version: "{{ version }}"
+  - npm:
+      path: "{{ priveos_install_dir }}"
+  - template: 
+      src: priveos_config.j2 
+      dest: "{{ priveos_install_dir }}/common/config.js"
+  - shell: "pm2 start live.yml && pm2 save"
+    args:
+      chdir: "{{ priveos_install_dir }}"
+- name: Install PM2 systemd script
+  become: yes
+  shell: "pm2 startup systemd -u priveos --hp /home/priveos"
+
+- name: Configure encryptionservice
+  become_user: "{{ encryption_service_user }}"
+  block:
+  - git:
+      repo: "{{ encryption_service_repo }}"
+      dest: "{{ encryption_service_install_dir }}"
+      update: yes
+      version: "{{ version }}"
+  - npm:
+      path: "{{ encryption_service_install_dir }}"
+  - template: 
+      src: encryption_config.j2 
+      dest: "{{ encryption_service_install_dir }}/config.js"
+  - shell: "pm2 start live.yml && pm2 save"
+    args:
+      chdir: "{{ encryption_service_install_dir }}"
+- name: Install PM2 systemd script for encryptionservice
+  become: yes
+  shell: "pm2 startup systemd -u encryptionservice --hp /home/encryptionservice"
+- name: Configure Nginx
+  become: yes
+  template:
+    src: nginx.j2
+    dest: "/etc/nginx/sites-enabled/default"
+- name: Configure SSL
+  become: yes
+  shell: "certbot -n --nginx --agree-tos --email {{ lets_encrypt_email }} --domains {{ host_name }}"
+  args:
+    creates: "/etc/letsencrypt/live/{{ server_name }}"
+  

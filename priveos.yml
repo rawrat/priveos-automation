@@ -1,0 +1,11 @@
+---
+
+- hosts: "priveos"
+  become: yes
+  roles:
+    - deploy
+
+  gather_facts: no
+  pre_tasks:
+    - name: "install python"
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python)

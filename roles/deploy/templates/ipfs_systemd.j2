@@ -1,0 +1,12 @@
+[Unit]
+Description=IPFS Daemon
+ 
+[Service]
+Type=simple
+User=ipfs
+Environment=HOME=/home/{{ ipfs_user }}
+Restart=always
+ExecStart=/usr/local/bin/ipfs daemon
+ 
+[Install]
+WantedBy=multi-user.target

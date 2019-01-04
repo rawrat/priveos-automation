@@ -1,0 +1,20 @@
+upstream broker {
+  server 127.0.0.1:4000;
+}
+upstream kms {
+  server 127.0.0.1:3000;
+}
+server {
+  listen 443 ssl;
+  server_name {{ host_name }};
+ 
+  location /broker/ {
+    proxy_pass http://broker/;
+  }
+  location /kms/ {
+    proxy_pass http://kms/;
+  }
+  location / {
+    deny all;
+  }
+}
