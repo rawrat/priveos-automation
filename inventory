@@ -1,5 +1,5 @@
 [priveos]
-slantagnode2.priveos.io
+my.server.name
 
 [default:children]
 priveos
