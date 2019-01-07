@@ -8,9 +8,6 @@ server {
   listen 443 ssl;
   server_name {{ host_name }};
  
-  ssl_certificate /etc/letsencrypt/live/{{ host_name }}/fullchain.pem;
-  ssl_certificate_key /etc/letsencrypt/live/{{ host_name }}/privkey.pem;
-     
   location /broker/ {
     proxy_pass http://broker;
   }

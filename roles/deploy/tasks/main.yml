@@ -60,11 +60,8 @@
   template:
     src: nginx.j2
     dest: "/etc/nginx/sites-available/default"
-- name: Reload Nginx
-  service: name=nginx state=reloaded
 - name: Configure SSL
   become: yes
   shell: "certbot -n --nginx --agree-tos --email {{ lets_encrypt_email }} --domains {{ host_name }}"
-  args:
-    creates: "/etc/letsencrypt/live/{{ host_name }}"
+
   
