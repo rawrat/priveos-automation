@@ -7,11 +7,13 @@
   - user:
       name: "{{ priveos_user }}"
       state: present
-      home: "/home/{{ priveos_user }}"      
+      home: "/home/{{ priveos_user }}"   
+      shell: /bin/bash   
   - user:
       name: "{{ encryption_service_user }}"
       state: present
       home: "/home/{{ encryption_service_user }}"
+      shell: /bin/bash
 - name: Configure privEOS
   become_user: "{{ priveos_user }}"
   block:
@@ -25,6 +27,7 @@
   - template: 
       src: priveos_config.j2 
       dest: "{{ priveos_install_dir }}/common/config.js"
+      force: no
   - shell: "pm2 start live.yml && pm2 save"
     args:
       chdir: "{{ priveos_install_dir }}"
@@ -45,6 +48,7 @@
   - template: 
       src: encryption_config.j2 
       dest: "{{ encryption_service_install_dir }}/config.js"
+      force: no
   - shell: "pm2 start live.yml && pm2 save"
     args:
       chdir: "{{ encryption_service_install_dir }}"
@@ -55,7 +59,9 @@
   become: yes
   template:
     src: nginx.j2
-    dest: "/etc/nginx/sites-enabled/default"
+    dest: "/etc/nginx/sites-available/default"
+- name: Reload Nginx
+  service: name=nginx state=reloaded
 - name: Configure SSL
   become: yes
   shell: "certbot -n --nginx --agree-tos --email {{ lets_encrypt_email }} --domains {{ host_name }}"
