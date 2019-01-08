@@ -26,6 +26,10 @@ This Ansible repo currently only works with Ubuntu and has been tested with Ubun
 There is no need to prepare anything special, just have OpenSSH installed and listening on the usual port. You need to have root login enabled and the SSH Key of your control machine should be in the .ssh/authorized_keys so we can login as root using only the Key.
 
 ## Running the Installation
+    
+    git clone https://github.com/rawrat/priveos-automation
+    cd priveos-automation
+    
 Edit the inventory file and replace ```my.server.name``` with your host name. There needs to be a valid DNS record for this host name pointing to the public IP address of the server before we start.
 
 Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables.
@@ -50,5 +54,10 @@ Log in to the server
 Edit config.js and insert your private key here. 
 
 The private key you enter here is the one you are going to supply when calling ```priveosrules:regnode```. It should be different from your active and owner key. You should generate a new key just for this purpose. It does not need to be added as a permission to your account.
+
+When you're done, please restart the encryptionservice:
+  
+    pm2 restart all
+  
 
 This key can be rotated by calling ```regnode``` again. A full history of all old private keys must, however be kept in this config file, otherwise, old files cannot be decrypted anymore and will be lost. 
