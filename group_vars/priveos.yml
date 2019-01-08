@@ -11,8 +11,11 @@ chainId: "EOSIO Chain ID"
 # email address to be notified about the free let's encrypt SSL certificate
 lets_encrypt_email: your_email@example.com
 
+# Please provide your github credentials so we can check out private repos
 git_username: your_github_username
 git_password: your_github_password
 
+# The host name that will be publicly visible. A DNS record must point to
+# the IP address of the server we're going to use this on.
 host_name: my.server.name
 
