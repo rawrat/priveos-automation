@@ -1,6 +1,6 @@
 # PrivEOS Automation
 
-This Ansible repo will deploy a privEOS fully automatically. It's the recommended way to set up privEOS nodes as it's easy and fast and creates a deterministic and reproducible setup.
+This Ansible repo will deploy a privEOS fully automatically. It's the recommended way to set up privEOS nodes as it's easy and fast and creates a deterministic and reproducible setup. Thanks to [BlockMatrixNetwork](https://github.com/BlockMatrixNetwork/eos-mainnet) for inspiring me to automate the process using Ansible.
 
 ## Install Ansible on the Control Machine
 
