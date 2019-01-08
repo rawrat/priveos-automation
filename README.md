@@ -30,7 +30,7 @@ There is no need to prepare anything special, just have OpenSSH installed and li
     git clone https://github.com/rawrat/priveos-automation
     cd priveos-automation
     
-Edit the inventory file and replace ```my.server.name``` with your host name. There needs to be a valid DNS record for this host name pointing to the public IP address of the server before we start.
+Edit the ```inventory``` file and replace ```my.server.name``` with your host name. There needs to be a valid DNS record for this host name pointing to the public IP address of the server before we start.
 
 Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables.
 
