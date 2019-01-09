@@ -36,6 +36,7 @@ Next, open ```group_vars/priveos.yml``` and fill in your personal values for all
 
 Once that's done, we can start the installation like this:
     
+    # run this from the top level folder of priveos-automation 
     ansible-playbook priveos.yml
     
 This will take ~15-20 minutes. If everything worked, you should see an output like this in the end:
