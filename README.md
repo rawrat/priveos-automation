@@ -26,6 +26,7 @@ This Ansible repo currently only works with Ubuntu and has been tested with Ubun
 There is no need to prepare anything special, just have OpenSSH installed and listening on the usual port. You need to have root login enabled and the SSH Key of your control machine should be in the .ssh/authorized_keys so we can login as root using only the Key.
 
 ## Running the Installation
+On your control machine (not on the server that we're going to set up):
     
     git clone https://github.com/rawrat/priveos-automation
     cd priveos-automation
