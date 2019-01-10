@@ -99,3 +99,6 @@ When you're done, please restart the encryptionservice:
   
 
 This key can be rotated by calling ```regnode``` again. A full history of all old private keys must, however be kept in this config file, otherwise, old files cannot be decrypted anymore and will be lost. 
+
+## What's next?
+You can now move to the [final step](https://github.com/rawrat/privEOS#registering-your-node)
