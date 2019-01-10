@@ -35,6 +35,8 @@ Edit the ```inventory``` file and replace ```my.server.name``` with your host na
 
 Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables.
 
+If the SSH identity you would like to use is not configured in your ssh config, uou can use the variable ```ansible_ssh_private_key_file``` to specify the location of your ssh key. If you are using a non-standard SSH port, you can set it in the variable ```ansible_port```.
+
 Once that's done, we can start the installation like this:
     
     # run this from the top level folder of priveos-automation 
