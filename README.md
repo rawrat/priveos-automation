@@ -8,7 +8,9 @@ We're going to install ansible on the control machine. The control machine can b
 
 Installing ansible is as easy as:
 
+```
 sudo pip install ansible
+```
 
 For further info, check out the [official ansible doc](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-machine).
 
@@ -23,7 +25,7 @@ These specs are valid for the testnet and might be increased over time as usage 
 
 This Ansible repo currently only works with Ubuntu and has been tested with Ubuntu 18.04 LTS. It might work with slightly older or newer versions as well. 
 
-There is no need to prepare anything special, just have OpenSSH installed and listening on the usual port. You need to have root login enabled and the SSH Key of your control machine should be in the .ssh/authorized_keys so we can login as root using only the Key.
+There is no need to prepare anything special, just have OpenSSH installed and running. You need to have SSH public key authentication configured so you can login to the server without password. 
 
 ## Running the Installation
 On your control machine (not on the server that we're going to set up):
@@ -33,7 +35,7 @@ On your control machine (not on the server that we're going to set up):
     
 Edit the ```inventory``` file and replace ```my.server.name``` with your host name. There needs to be a valid DNS record for this host name pointing to the public IP address of the server before we start.
 
-Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables.
+Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables. The user you would like to use to login into the server can be given in the `ansible_user` variable. If you are using a non-privileged user to login, make sure this user can do sudo without a password.
 
 If the SSH identity you would like to use is not configured in your ssh config, you can use the variable ```ansible_ssh_private_key_file``` to specify the location of your ssh key. If you are using a non-standard SSH port, you can set it in the variable ```ansible_port```.
 
