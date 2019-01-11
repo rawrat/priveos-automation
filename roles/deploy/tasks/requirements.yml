@@ -54,7 +54,6 @@
       creates: "/home/{{ ipfs_user }}/.ipfs"
   - shell: "ipfs config Addresses.Gateway /ip4/127.0.0.1/tcp/8081"
     become_user: "{{ ipfs_user }}"
-    args:
   - template: 
       src: ipfs_systemd.j2 
       dest: "/etc/systemd/system/ipfs.service"
