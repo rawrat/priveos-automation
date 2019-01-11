@@ -1,14 +1,14 @@
 ---
 
-ipfs_user: ipfs
-priveos_user: priveos
-encryption_service_user: encryptionservice
+ipfs_user: "ipfs"
+priveos_user: "priveos"
+encryption_service_user: "encryptionservice"
 
 priveos_repo: "https://{{git_username}}:{{git_password}}@github.com/rawrat/privEOS.git"
 priveos_install_dir: "/home/{{ priveos_user }}/privEOS/"
-version: master
+version: "master"
 
-encryption_service_repo: https://{{git_username}}:{{git_password}}@github.com/rawrat/priveos-encryption-service.git
+encryption_service_repo: "https://{{git_username}}:{{git_password}}@github.com/rawrat/priveos-encryption-service.git"
 encryption_service_install_dir: "/home/{{ encryption_service_user }}/priveos-encryption-service/"
 
 
