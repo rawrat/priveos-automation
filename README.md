@@ -68,11 +68,10 @@ module.exports = {
     * old keys will be lost.
     */
   oldKeys: [
-    "__insert_your_private_key_here__", 
   ]  
 }
 ```
-Please replace both occurences of ```__insert_your_private_key_here__``` with your private key.
+Please replace ```__insert_your_private_key_here__``` with your private key.
 
 The private key you enter here should match the one public key you are going to supply when calling ```priveosrules:regnode```. It should be different from your active and owner key. You should generate a new key just for this purpose. It does not need to be added as a permission to your account.
 
@@ -88,7 +87,6 @@ module.exports = {
     * old keys will be lost.
     */
   oldKeys: [
-    "5KEcQbZ8QPuwNfTWQRyNi12HMB5reAmCgigBXLPep7jp8eegi8k", 
   ]  
 }
 ```
