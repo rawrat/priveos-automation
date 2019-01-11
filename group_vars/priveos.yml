@@ -5,20 +5,24 @@
 nodeAccount: "You Producer EOS Account"
 
 # Which chain are we connecting to?
-httpEndpoint: "EOSIO Endpoint"
+httpEndpoint: "https://your_favourite_api_endpoint"
+
+# Chain ID e.g. ("e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473" for Jungle2)
 chainId: "EOSIO Chain ID"
 
 # email address to be notified about the free let's encrypt SSL certificate
-lets_encrypt_email: your_email@example.com
+lets_encrypt_email: "your_email@example.com"
 
 # Please provide your github credentials so we can check out private repos
-git_username: your_github_username
-git_password: your_github_password
+git_username: "your_github_username"
+git_password: "your_github_password"
 
 # The host name that will be publicly visible. A DNS record must point to
 # the IP address of the server we're going to use this on.
 host_name: my.server.name
 
+# The user the we're using to login to the server
+# If it's not root, this user should have sudo power without a password
 ansible_user: root
 
 # Use these settings for non standard ssh port and/or ssh key
