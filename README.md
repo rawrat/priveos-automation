@@ -40,7 +40,7 @@ If the SSH identity you would like to use is not configured in your ssh config, 
 Once that's done, we can start the installation like this:
     
     # run this from the top level folder of priveos-automation 
-    ansible-playbook priveos.yml
+    ansible-playbook install.yml
     
 This will take ~15-20 minutes. If everything worked, you should see an output like this in the end:
 
