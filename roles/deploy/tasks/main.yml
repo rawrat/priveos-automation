@@ -62,6 +62,6 @@
     dest: "/etc/nginx/sites-available/default"
 - name: Configure SSL
   become: yes
-  shell: "certbot -n --nginx --agree-tos --email {{ lets_encrypt_email }} --domains {{ host_name }}"
+  shell: "certbot -n --nginx --redirect --agree-tos --email {{ lets_encrypt_email }} --domains {{ host_name }}"
 
   
