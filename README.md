@@ -4,7 +4,7 @@ This Ansible repo will deploy a privEOS fully automatically. It's the recommende
 
 ## Install Ansible on the Control Machine
 
-We're going to install ansible on the control machine. The control machine can be any machine (not the server itself) that you would like to use to set up the server, e.g. your work laptop. It's not necessary to install anything on the server other than the base Ubuntu 18.04.
+We're going to install ansible on the control machine. The control machine can be any machine (not the server itself) that you would like to use to set up the server, e.g. your work laptop. 
 
 Installing ansible is as easy as:
 
@@ -23,7 +23,7 @@ You need a server with the following hardware specs:
 
 These specs are valid for the testnet and might be increased over time as usage increases or as new functionality is introduced.
 
-This Ansible repo currently only works with Ubuntu and has been tested with Ubuntu 18.04 LTS. It might work with slightly older or newer versions as well. 
+This Ansible repo currently only works with Ubuntu and has been tested with Ubuntu 18.04 LTS and Ubuntu 18.10. It might work with slightly older or newer versions as well. 
 
 There is no need to prepare anything special, just have OpenSSH installed and running. You need to have SSH public key authentication configured so you can login to the server without password. 
 
