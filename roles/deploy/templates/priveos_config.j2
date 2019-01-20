@@ -1,6 +1,10 @@
 module.exports = {
   httpEndpoint: "{{ httpEndpoint }}",
   chainId: "{{ chainId }}",
+  watchdogPermission: {
+    permission: "{{ watchdogPermissionName }}",
+    key: "{{ watchdogPrivateKey }}",
+  },
   mongoUrl: 'mongodb://127.0.0.1:27017',
   dbName: 'priveos',
   contract: 'priveosrules',
