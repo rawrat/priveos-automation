@@ -35,7 +35,9 @@ On your control machine (not on the server that we're going to set up):
     
 Edit the ```inventory``` file and replace ```my.server.name``` with your host name. There needs to be a valid DNS record for this host name pointing to the public IP address of the server before we start.
 
-Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables. The user you would like to use to login into the server can be given in the `ansible_user` variable. If you are using a non-privileged user to login, make sure this user can do sudo without a password.
+Next, open ```group_vars/priveos.yml``` and fill in your personal values for all the variables. For the watchdogPrivateKey, please follow the [instructions here](https://github.com/rawrat/privEOS#add-watchdog-permission).
+
+The user you would like to use to login into the server can be given in the `ansible_user` variable. If you are using a non-privileged user to login, make sure this user can do sudo without a password.
 
 If the SSH identity you would like to use is not configured in your ssh config, you can use the variable ```ansible_ssh_private_key_file``` to specify the location of your ssh key. If you are using a non-standard SSH port, you can set it in the variable ```ansible_port```.
 
