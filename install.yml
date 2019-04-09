@@ -5,7 +5,7 @@
   roles:
     - deploy
 
-  gather_facts: no
+  gather_facts: yes
   pre_tasks:
     - name: "install python"
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python)
