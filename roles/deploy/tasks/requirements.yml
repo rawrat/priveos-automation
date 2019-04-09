@@ -34,7 +34,6 @@
     - python-certbot-nginx
     - git 
     - nodejs 
-    - npm 
     - mongodb-server 
     - golang 
     - nginx 
