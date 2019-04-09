@@ -43,8 +43,6 @@
       args:
         creates: "~/go/bin/ipfs-update"
     - shell: "~/go/bin/ipfs-update install latest"
-      args:
-        creates: "/usr/local/bin/ipfs"
 - name: Installing PM2
   npm:
     name: pm2
