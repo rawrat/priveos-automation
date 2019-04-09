@@ -10,7 +10,9 @@
 - name: Adding node_11.x PPA
   become: yes
   block:
-    - shell: "curl -sSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -"
+    - apt_key:
+        url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
+        state: present
     - template: 
         src: nodesource.list.j2 
         dest: "/etc/apt/sources.list.d/nodesource.list"
