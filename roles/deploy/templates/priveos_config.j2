@@ -1,16 +1,22 @@
 module.exports = {
-  httpEndpoint: "{{ httpEndpoint }}",
-  chainId: "{{ chainId }}",
-  watchdogPermission: {
-    permission: "{{ watchdogPermissionName }}",
-    key: "{{ watchdogPrivateKey }}",
-  },
+  chains: [
+    {% for chain in chains %}
+    {
+      httpEndpoint: "{{ chain.httpEndpoint }}",
+      chainId: "{{ chain.chainId }}",
+      contract: "{{ chain.contract }}",
+      nodeAccount: "{{ chain.nodeAccount }}",
+      dbName: "{{ chain.dbName }}",
+      watchdogPermission: {
+        permission: "{{ chain.watchdogPermissionName }}",
+        key: "{{ chain.watchdogPrivateKey }}",
+      },
+    },
+    {% endfor %}    
+  ],
   mongoUrl: 'mongodb://127.0.0.1:27017',
-  dbName: 'priveos',
-  contract: 'priveosrules',
   kmsPort: 3000,
   brokerPort: 4000,
-  nodeAccount: "{{ nodeAccount }}",
   backend: 'demux',
   encryptionServiceUrl: 'http://127.0.0.1:6000',
   ipfsConfig: {

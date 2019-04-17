@@ -21,13 +21,14 @@
       repo: "{{ priveos_repo }}"
       dest: "{{ priveos_install_dir }}"
       update: yes
+      force: yes
       version: "{{ version }}"
   - npm:
       path: "{{ priveos_install_dir }}"
   - template: 
       src: priveos_config.j2 
       dest: "{{ priveos_install_dir }}/common/config.js"
-      force: no
+      force: yes
   - shell: "pm2 start live.yml && pm2 save"
     args:
       chdir: "{{ priveos_install_dir }}"
@@ -42,6 +43,7 @@
       repo: "{{ encryption_service_repo }}"
       dest: "{{ encryption_service_install_dir }}"
       update: yes
+      force: yes
       version: "{{ version }}"
   - npm:
       path: "{{ encryption_service_install_dir }}"
