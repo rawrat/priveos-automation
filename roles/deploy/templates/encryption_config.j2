@@ -1,6 +1,10 @@
 module.exports = {
   listenPort: '6000',
-  currentPrivateKey: "__insert_your_private_key_here__",
+  currentPrivateKeys: {
+  {% for chain in chains %}
+    "{{ chain.chainId }}": "__insert_your_private_key_here__",
+  {% endfor %}
+  }
   /**
     * If you're rotating your node key (above), keep a list of all the used 
     * keys here, please. Otherwise, old files that were encrypted with the 
