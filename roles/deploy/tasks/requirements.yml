@@ -38,6 +38,7 @@
     - golang 
     - nginx 
     - ntp
+    - build-essential
 - name: Installing IPFS
   block:
     - shell: "go get -u github.com/ipfs/ipfs-update"
