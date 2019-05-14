@@ -54,53 +54,7 @@ my.server.name    : ok=26   changed=25   unreachable=0    failed=0
 ```
 
 ## Post Installation Setup
-Log in to the server 
-
-    su - encryptionservice
-    cd priveos-encryption-service
-
-Edit config.js and insert your private key here. 
-
-The file looks like this:
-```
-module.exports = {
-  listenPort: '6000',
-  currentPrivateKey: "__insert_your_private_key_here__",
-  /**
-    * If you're rotating your node key (above), keep a list of all the used 
-    * keys here, please. Otherwise, old files that were encrypted with the 
-    * old keys will be lost.
-    */
-  oldKeys: [
-  ]  
-}
-```
-Please replace ```__insert_your_private_key_here__``` with your private key.
-
-The private key you enter here should match the one public key you are going to supply when calling ```priveosrules:regnode```. It should be different from your active and owner key. You should generate a new key just for this purpose. It does not need to be added as a permission to your account.
-
-When you're done editing, it should look like in this example (please don't use this example key):
-
-```
-module.exports = {
-  listenPort: '6000',
-  currentPrivateKey: "5KEcQbZ8QPuwNfTWQRyNi12HMB5reAmCgigBXLPep7jp8eegi8k",
-  /**
-    * If you're rotating your node key (above), keep a list of all the used 
-    * keys here, please. Otherwise, old files that were encrypted with the 
-    * old keys will be lost.
-    */
-  oldKeys: [
-  ]  
-}
-```
-
-When you're done, please restart the encryptionservice:
-  
-    pm2 restart all
-  
-
-This key can be rotated by calling ```regnode``` again. A full history of all old private keys must, however be kept in this config file, otherwise, old files cannot be decrypted anymore and will be lost. 
+Now we need to import our private key into the secure vault. Please [continue here](https://github.com/rawrat/priveos-encryption-service#usage).
 
 ## What's next?
 You can now move to the [final step](https://github.com/rawrat/privEOS#registering-your-node)

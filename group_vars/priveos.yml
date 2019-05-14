@@ -9,6 +9,8 @@ chains:
     httpEndpoint: "https://your_favourite_api_endpoint"
     # Chain ID e.g. ("e70aaab8997e1dfce58fbfac80cbbb8fecec7b99cf982a9444273cbc64c41473" for Jungle2)
     chainId: "EOSIO Chain ID"
+    # The public key here is identical to the one you're using to regnode (see https://github.com/rawrat/privEOS#registering-your-node)
+    publicKey: ""
     # Please follow the instructions here: https://github.com/rawrat/privEOS#add-watchdog-permission
     # And insert your watchdog private key here:
     watchdogPrivateKey: ""
@@ -21,6 +23,7 @@ chains:
   # - nodeAccount: ""
   #   httpEndpoint: ""
   #   chainId: ""
+  #   publicKey: ""
   #   watchdogPrivateKey: ""
   #   watchdogPermissionName: "watchdog"
   #   contract: "priveosrules"
