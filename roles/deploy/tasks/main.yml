@@ -14,6 +14,15 @@
       state: present
       home: "/home/{{ encryption_service_user }}"
       shell: /bin/bash
+- name: Updating system limits
+  become: yes
+  block:
+    - lineinfile:
+        path: /etc/security/limits.conf
+        line: 'encryptionservice     soft    memlock         104857600'
+    - lineinfile:
+        path: /etc/security/limits.conf
+        line: 'encryptionservice     hard    memlock         104857600'
 - name: Configure privEOS
   become_user: "{{ priveos_user }}"
   block:
