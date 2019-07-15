@@ -58,3 +58,7 @@ Now we need to import our private key into the secure vault. Please [continue he
 
 ## What's next?
 You can now move to the [final step](https://github.com/rawrat/privEOS#registering-your-node)
+
+## Securing the server
+The steps in this automation script are the minimal steps needed to install privEOS. You still need to harden your server setup yourself according to your own usual practices (enabling SELinux, Firewalls, secure system configuration, limiting SSH access, etc). In a production environment, never run IPFS on the same server. Always install IPFS on a server that is separate from privEOS.
+
